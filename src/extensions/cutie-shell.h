@@ -9,17 +9,11 @@
 
 #include "qwayland-cutie-shell-private.h"
 
-class CutieShell : public QWaylandClientExtensionTemplate<CutieShell>
-	, public QtWayland::cutie_shell_private
-
-{
+class Q_WAYLANDCLIENT_EXPORT CutieShell 
+	: public QWaylandClientExtensionTemplate<CutieShell>
+	, public QtWayland::cutie_shell_private {
 	Q_OBJECT
 public:
-	CutieShell(QQmlEngine *engine = nullptr);
+	CutieShell();
 	Q_INVOKABLE void execApp(const QString &path);
-
-    static QObject *provider(QQmlEngine *engine, QJSEngine *scriptEngine);
-
-private:
-	QQmlEngine *m_engine;
 };

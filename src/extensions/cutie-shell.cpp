@@ -1,16 +1,14 @@
 #include <extensions/cutie-shell.h>
 
-CutieShell::CutieShell(QQmlEngine *engine)
+CutieShell::CutieShell()
     : QWaylandClientExtensionTemplate(1) {
-    m_engine = engine;
 }
 
 void CutieShell::execApp(const QString &path)
 {
-	QtWayland::cutie_shell_private::exec_app(path);
-}
-
-QObject *CutieShell::provider(QQmlEngine *engine, QJSEngine *scriptEngine) {
-    Q_UNUSED(scriptEngine);
-    return new CutieShell(engine);
+    if (isActive()) {
+	    QtWayland::cutie_shell_private::exec_app(path);
+    } else {
+        qWarning() << "CutieShell protocol is not activated!";
+    }
 }
