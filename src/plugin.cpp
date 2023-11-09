@@ -1,5 +1,5 @@
 #include "plugin.h"
-#include "extensions/cutie-shell.h"
+#include <wayland-cutie-shell.h>
 
 void CutieWlcPlugin::registerTypes(const char *uri) {
     CutieShell *cutieShell = new CutieShell();

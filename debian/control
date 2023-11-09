@@ -6,10 +6,11 @@ Build-Depends: pkg-kde-tools,
                cmake,
                libgles-dev,
                qt6-base-dev,
-               qt6-wayland,
-               qt6-wayland-dev,
-               pkg-config,
                qt6-declarative-dev,
+               qt6-wayland-dev,
+               qt6-wayland,
+               libcutiewlc-dev,
+               pkg-config,
 Standards-Version: 4.5.1
 
 Package: qml6-module-cutiewlc

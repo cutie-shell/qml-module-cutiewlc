@@ -5,12 +5,12 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 find_package(QT NAMES Qt6 REQUIRED COMPONENTS Core)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Gui Qml Quick WaylandClient)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Gui WaylandClient Quick)
+pkg_check_modules(CUTIEWLC cutiewlc REQUIRED IMPORTED_TARGET)
 
 qt_standard_project_setup()
 
 set(plugin_SOURCES
-    src/extensions/cutie-shell.cpp src/extensions/cutie-shell.h
     src/plugin.cpp src/plugin.h)
 
 qt6_add_library(qmlcutiewlcplugin
@@ -22,17 +22,11 @@ target_include_directories(qmlcutiewlcplugin PUBLIC
     src
 )
 
-qt6_generate_wayland_protocol_client_sources(
-    qmlcutiewlcplugin
-    FILES ${CMAKE_CURRENT_SOURCE_DIR}/src/protocols/cutie-shell-private.xml
-)
-
 target_link_libraries(qmlcutiewlcplugin PUBLIC
     Qt::Core
     Qt::Gui
-    Qt::Qml
-    Qt::Quick
     Qt::WaylandClient
+    Qt::Quick
 )
 
 install(TARGETS qmlcutiewlcplugin
