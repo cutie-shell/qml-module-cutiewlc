@@ -7,6 +7,7 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 find_package(QT NAMES Qt6 REQUIRED COMPONENTS Core)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Gui WaylandClient Quick)
 pkg_check_modules(CUTIEWLC cutiewlc REQUIRED IMPORTED_TARGET)
+pkg_check_modules(FOREIGN_TP_MGMT qt6-foreign-toplevel-management REQUIRED IMPORTED_TARGET)
 
 qt_standard_project_setup()
 
@@ -28,6 +29,7 @@ target_link_libraries(qmlcutiewlcplugin PUBLIC
     Qt::WaylandClient
     Qt::Quick
     PkgConfig::CUTIEWLC
+    PkgConfig::FOREIGN_TP_MGMT
 )
 
 install(TARGETS qmlcutiewlcplugin
