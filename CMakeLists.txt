@@ -27,6 +27,7 @@ target_link_libraries(qmlcutiewlcplugin PUBLIC
     Qt::Gui
     Qt::WaylandClient
     Qt::Quick
+    PkgConfig::CUTIEWLC
 )
 
 install(TARGETS qmlcutiewlcplugin
