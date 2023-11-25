@@ -11,6 +11,7 @@ Build-Depends: pkg-kde-tools,
                qt6-wayland,
                libcutiewlc-dev,
                qt6-foreign-toplevel-management-dev,
+               qt6-output-power-management-dev,
                pkg-config,
 Standards-Version: 4.5.1
 
