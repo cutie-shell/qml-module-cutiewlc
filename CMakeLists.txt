@@ -9,11 +9,13 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Gui WaylandClient Quick)
 pkg_check_modules(CUTIEWLC cutiewlc REQUIRED IMPORTED_TARGET)
 pkg_check_modules(FOREIGN_TP_MGMT qt6-foreign-toplevel-management REQUIRED IMPORTED_TARGET)
 pkg_check_modules(OUTPUT_PWR_MGMT qt6-output-power-management REQUIRED IMPORTED_TARGET)
+pkg_check_modules(SCREENCOPY qt6-screencopy REQUIRED IMPORTED_TARGET)
 
 qt_standard_project_setup()
 
 set(plugin_SOURCES
-    src/plugin.cpp src/plugin.h)
+    src/plugin.cpp src/plugin.h
+    src/cutieappthumbnail.cpp src/cutieappthumbnail.h)
 
 qt6_add_library(qmlcutiewlcplugin
     SHARED
@@ -32,6 +34,7 @@ target_link_libraries(qmlcutiewlcplugin PUBLIC
     PkgConfig::CUTIEWLC
     PkgConfig::FOREIGN_TP_MGMT
     PkgConfig::OUTPUT_PWR_MGMT
+    PkgConfig::SCREENCOPY
 )
 
 install(TARGETS qmlcutiewlcplugin
