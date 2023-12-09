@@ -12,6 +12,7 @@ Build-Depends: pkg-kde-tools,
                libcutiewlc-dev,
                qt6-foreign-toplevel-management-dev,
                qt6-output-power-management-dev,
+               qt6-screencopy-dev,
                pkg-config,
 Standards-Version: 4.5.1
 
