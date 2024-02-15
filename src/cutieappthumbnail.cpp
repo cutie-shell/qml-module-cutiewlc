@@ -3,7 +3,6 @@
 CutieAppThumbnail::CutieAppThumbnail(QQuickItem *parent)
 	: QQuickPaintedItem(parent)
 {
-	qDebug() << "CREATED";
 }
 
 CutieShell *CutieAppThumbnail::wlc()
@@ -40,7 +39,6 @@ void CutieAppThumbnail::setToplevel(ForeignToplevelHandleV1 *toplevel)
 
 void CutieAppThumbnail::paint(QPainter *painter)
 {
-	qDebug() << "PAINT";
 	painter->drawImage(QRectF(QPointF(), size()), m_image);
 }
 
